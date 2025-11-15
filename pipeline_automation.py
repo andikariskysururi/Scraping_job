@@ -14,11 +14,11 @@ print(HF_TOKEN)
 def run_pipeline():
     #scrapping 
     print('runn scrapping')
-    #scraper_engine()
+    scraper_engine()
 
     #embedding 
     print('runm embbed')
-    #embbed_process()
+    embbed_process()
     
 
     print(">> Uploading FAISS Store to Hugging Face...")
