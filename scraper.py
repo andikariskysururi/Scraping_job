@@ -40,9 +40,11 @@ def save_scrape_result(all_data):
     updated_n_rows = after_update_shape - current_shape
     if (updated_n_rows) > 0: 
         print(f"UPDATED DATA {datetime.now()} : {updated_n_rows} ARTIKEL")
+        df.to_csv(f"data/result-scrape.csv")
+        return True
     else : 
         print("NOTHING UPDATED DATA")
-    df.to_csv(f"data/result-scrape.csv")
+        return False
 
 def scraper_engine(n_data = 10): 
     all_data = []
@@ -88,8 +90,8 @@ def scraper_engine(n_data = 10):
                 continue
 
     print(f"\n SCRAPED DATA TOTAL: {len(all_data)} ARTIKEL")
-    save_scrape_result(all_data) 
-
+    any_updated = save_scrape_result(all_data) 
+    return any_updated
 
 if __name__ == "__main__":
     scraper_engine()
